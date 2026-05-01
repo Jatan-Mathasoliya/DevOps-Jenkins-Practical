@@ -4,25 +4,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Code fetched from GitHub'
+                echo 'Fetching code from GitHub'
             }
         }
 
-        stage('Build') {
+        stage('Compile') {
             steps {
-                bat 'echo Building project'
+                bat 'javac Main.java'
             }
         }
 
-        stage('Test') {
+        stage('Run') {
             steps {
-                bat 'echo Testing project'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                bat 'echo Deploying project'
+                bat 'java Main'
             }
         }
     }
